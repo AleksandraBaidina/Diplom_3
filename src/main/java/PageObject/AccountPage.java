@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.page;
 public class AccountPage {
     //Кнопка конструктор
     @FindBy(how = How.XPATH, using = ".//*[text()='Конструктор']")
-    public SelenideElement constructorBtn;
+    private SelenideElement constructorBtn;
 
     //Лого кнопка
     @FindBy(how = How.CLASS_NAME, using = "AppHeader_header__logo__2D0X2")
@@ -22,39 +22,39 @@ public class AccountPage {
 
     //Профиль
     @FindBy(how = How.XPATH, using = "//*[@href='/account/profile']")
-    public SelenideElement profile;
+    private SelenideElement profile;
 
     //История заказов
     @FindBy(how = How.XPATH, using = "//*[@href='/account/order-history']")
-    public SelenideElement orderHistory;
+    private SelenideElement orderHistory;
 
     //Выход
     @FindBy(how = How.XPATH, using = ".//*[text()='Выход']")
-    public SelenideElement logoutBtn;
+    private SelenideElement logoutBtn;
 
     // Текст В этом разделе вы можете изменить свои персональные данные
     @FindBy(how = How.CSS, using = ".Account_text__fZAIn.text.text_type_main-default")
-    public SelenideElement changeYourDataText;
+    private SelenideElement changeYourDataText;
 
     //Редактировать поле имя
     @FindBy(how = How.XPATH, using = "//div[@class='input__icon input__icon-action'])[1]")
-    public SelenideElement editNameField;
+    private SelenideElement editNameField;
 
     // Редактировать поле логин
     @FindBy(how = How.XPATH, using = "//div[@class='input__icon input__icon-action'])[2]")
-    public SelenideElement editLoginField;
+    private SelenideElement editLoginField;
 
     //Редактировать поле пароль
     @FindBy(how = How.XPATH, using = "//div[@class='input__icon input__icon-action'])[3]")
-    public SelenideElement editPasswordField;
+    private SelenideElement editPasswordField;
 
     //Кнопка отмена
     @FindBy(how = How.XPATH, using = ".//*[text()='Отмена']")
-    public SelenideElement cancelBtn;
+    private SelenideElement cancelBtn;
 
     //Кнопка сохранить
     @FindBy(how = How.XPATH, using = ".//*[text()='Сохранить']")
-    public SelenideElement saveBtn;
+    private SelenideElement saveBtn;
 
     @Step("User logout")
     public LoginPage logout(){

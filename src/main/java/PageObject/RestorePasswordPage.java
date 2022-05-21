@@ -7,18 +7,18 @@ import org.openqa.selenium.support.How;
 public class RestorePasswordPage {
     //Текст Восстановление пароля
     @FindBy(how = How.XPATH, using = ".//*[text()='Восстановление пароля']")
-    public SelenideElement restorePasswordText;
+    private SelenideElement restorePasswordText;
 
     //Поле Email
     @FindBy(how = How.CSS, using = ".input.pr-6.pl-6.input_type_text.input_size_default")
-    public SelenideElement emailField;
+    private SelenideElement emailField;
 
     //Кнопка восстановить
     @FindBy(how = How.CSS, using = ".button_button__33qZ0.button_button_type_primary__1O7Bx.button_button_size_medium__3zxIa")
-    public SelenideElement restoreBtn;
+    private SelenideElement restoreBtn;
 
     //Ссылка Войти
     @FindBy(how = How.XPATH, using = ".//*[text()='Войти']")
-    public SelenideElement loginLink;
+    private SelenideElement loginLink;
 
 }

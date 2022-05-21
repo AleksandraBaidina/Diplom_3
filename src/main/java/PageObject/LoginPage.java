@@ -14,27 +14,27 @@ public class LoginPage {
 
     //Email поле
     @FindBy(how = How.XPATH, using = "//input[@name='name']")
-    public SelenideElement emailField;
+    private SelenideElement emailField;
 
     //Поле Пароль
     @FindBy(how = How.XPATH, using = "//input[@name='Пароль']")
-    public SelenideElement passwordField;
+    private SelenideElement passwordField;
 
     // Кнопка войти
     @FindBy(how = How.CSS, using = "*[class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa']")
-    public SelenideElement loginBtn;
+    private SelenideElement loginBtn;
 
     //Кнопка посмотреть пароль
     @FindBy(how = How.CLASS_NAME, using = "input__icon.input__icon-action")
-    public SelenideElement seePasswordBtn;
+    private SelenideElement seePasswordBtn;
 
     //Ссылка Зарегистрироваться
     @FindBy(how = How.XPATH, using = "//*[@href='/register']")
-    public SelenideElement registerLink;
+    private SelenideElement registerLink;
 
     //Ссылка Восстановть пароль
     @FindBy(how = How.XPATH, using = "//*[@href='/forgot-password']")
-    public SelenideElement restorePasswordLink;
+    private SelenideElement restorePasswordLink;
 
     @Step("User login through restore password")
     public RestorePasswordPage goToRestorePassword() {

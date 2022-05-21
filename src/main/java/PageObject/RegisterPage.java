@@ -13,35 +13,35 @@ import static com.codeborne.selenide.Selenide.page;
 public class RegisterPage {
     //Заголовок Регистрация
     @FindBy(how = How.XPATH, using = ".//*[text()='Регистрация']")
-    public SelenideElement registerText;
+    private SelenideElement registerText;
 
     //Имя поле
     @FindBy(how = How.XPATH,using = "(//input[@name='name'])[1]")
-    public SelenideElement nameField;
+    private SelenideElement nameField;
 
     //Email поле
     @FindBy(how = How.XPATH,using = "(//input[@name='name'])[2]")
-    public SelenideElement emailField;
+    private SelenideElement emailField;
 
     //Пароль поле
     @FindBy(how = How.XPATH,using = "//input[@type='password']")
-    public SelenideElement passwordField;
+    private SelenideElement passwordField;
 
     //Кнопка посмотреть пароль
     @FindBy(how = How.CLASS_NAME,using = ".input__icon.input__icon-action")
-    public SelenideElement seePasswordBtn;
+    private SelenideElement seePasswordBtn;
 
     //Кнопка Зарегистрироваться
     @FindBy(how = How.CSS,using = ".button_button__33qZ0.button_button_type_primary__1O7Bx.button_button_size_medium__3zxIa")
-    public SelenideElement registerBtn;
+    private SelenideElement registerBtn;
 
     //Ссылка Войти
     @FindBy(how = How.XPATH, using = ".//*[text()='Войти']")
-    public SelenideElement loginLink;
+    private SelenideElement loginLink;
 
     //Сообщение некорректный пароль
     @FindBy(how = How.XPATH, using = "//*[text()='Некорректный пароль']")
-    public SelenideElement errorMsgWrongPassword;
+    private SelenideElement errorMsgWrongPassword;
 
 
 

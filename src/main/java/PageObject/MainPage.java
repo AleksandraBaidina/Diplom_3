@@ -14,43 +14,43 @@ import static com.codeborne.selenide.Selenide.page;
 public class MainPage {
     //Кнопка конструктор
     @FindBy(how = How.XPATH, using = ".//*[text()='Конструктор']")
-    public SelenideElement constructorBtn;
+    private SelenideElement constructorBtn;
 
     //Кнопка Лента Заказов
     @FindBy(how = How.XPATH, using = ".//*[text()='Лента Заказов']")
-    public SelenideElement listOfOrdersBtn;
+    private SelenideElement listOfOrdersBtn;
 
     //Кнопка Личный Кабинет
     @FindBy(how = How.XPATH, using = "//*[@href='/account']")
-    public SelenideElement personalAccountBtn;
+    private SelenideElement personalAccountBtn;
 
     // Текст соберите бургер
     @FindBy(how = How.XPATH, using = ".//*[text()='Соберите бургер']")
-    public SelenideElement createBurgerText;
+    private SelenideElement createBurgerText;
 
     //Раздел булки
     @FindBy(how = How.XPATH, using = "//span[text()='Булки']")
-    public SelenideElement bunSection;
+    private SelenideElement bunSection;
 
     //Раздел соусы
     @FindBy(how = How.XPATH, using = "//span[text()='Соусы']")
-    public SelenideElement sauceSection;
+    private SelenideElement sauceSection;
 
     //Раздел начинка
     @FindBy(how = How.XPATH, using = "//span[text()='Начинки']")
-    public SelenideElement fillingSection;
+    private SelenideElement fillingSection;
 
     //Перетяните булочку сюда(верх)
     @FindBy(how = How.CSS, using = ".constructor-element.constructor-element_pos_top")
-    public SelenideElement topOfBun;
+    private SelenideElement topOfBun;
 
     //Перетяните булочку сюда(низ)
     @FindBy(how = How.CSS, using = ".constructor-element.constructor-element_pos_bottom")
-    public SelenideElement bottomOfBun;
+    private SelenideElement bottomOfBun;
 
     // Войти в аккаунт
     @FindBy(how = How.CSS, using = ".button_button__33qZ0.button_button_type_primary__1O7Bx.button_button_size_large__G21Vg")
-    public SelenideElement intoAccount;
+    private SelenideElement intoAccount;
 
     //Лого кнопка
     @FindBy(how = How.CLASS_NAME, using = "AppHeader_header__logo__2D0X2")
@@ -74,12 +74,6 @@ public class MainPage {
         return page(LoginPage.class);
     }
 
-    public void logOut() {
-        personalAccountBtn.shouldBe(Condition.exist, Duration.ofMillis(3000)).click();
-        AccountPage accountPage = page(AccountPage.class);
-        accountPage.logout().loginBtn.shouldBe(Condition.exist, Duration.ofMillis(3000));
-
-    }
 
     public AccountPage clickToPersonalAccountBtn()
     {

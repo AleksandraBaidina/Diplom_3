@@ -1,5 +1,7 @@
 import PageObject.*;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.impl.ThreadLocalSelenideDriver;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
@@ -11,7 +13,6 @@ import org.openqa.selenium.By;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ConstructorTests {
@@ -19,7 +20,7 @@ public class ConstructorTests {
     @Before
     public void setUp()
     {
-        //Для тестирования в браузере Янедкс, расскомментировать код
+        //Для тестирования в браузере Янедкс, раскомментировать код
 
 //        System.setProperty("webdriver.chrome.driver","Drivers/yandexdriver.exe");
 //        WebDriver driver =new ChromeDriver();
@@ -59,7 +60,7 @@ public class ConstructorTests {
     @Description("Check sauce section selected")
     public void goToSauceSection() {
         MainPage mainPage = open("https://stellarburgers.nomoreparties.site/", MainPage.class);
-        mainPage.sauceSection.click();
+        mainPage.clickSauceSection();
         Assert.assertFalse(mainPage.bunSection.find(new By.ByXPath("..")).getAttribute("class").contains("current"));
         Assert.assertTrue(mainPage.sauceSection.find(new By.ByXPath("..")).getAttribute("class").contains("current"));
         Assert.assertFalse(mainPage.fillingSection.find(new By.ByXPath("..")).getAttribute("class").contains("current"));
@@ -70,8 +71,8 @@ public class ConstructorTests {
     @Description("Check bun section selected")
     public void goToBunSection() {
         MainPage mainPage = open("https://stellarburgers.nomoreparties.site/", MainPage.class);
-        mainPage.sauceSection.click();
-        mainPage.bunSection.click();
+        mainPage.clickSauceSection();
+        mainPage.clickBunSection();
         Assert.assertTrue(mainPage.bunSection.find(new By.ByXPath("..")).getAttribute("class").contains("current"));
         Assert.assertFalse(mainPage.sauceSection.find(new By.ByXPath("..")).getAttribute("class").contains("current"));
         Assert.assertFalse(mainPage.fillingSection.find(new By.ByXPath("..")).getAttribute("class").contains("current"));
@@ -80,9 +81,9 @@ public class ConstructorTests {
     @Test
     @DisplayName("Constructor.Go to filling section")
     @Description("Check filling section selected")
-    public void goToFillingSection() {
+    public void goToFillingSection(){
         MainPage mainPage = open("https://stellarburgers.nomoreparties.site/", MainPage.class);
-        mainPage.fillingSection.click();
+        mainPage.clickFillingSection();
         Assert.assertFalse(mainPage.bunSection.find(new By.ByXPath("..")).getAttribute("class").contains("current"));
         Assert.assertFalse(mainPage.sauceSection.find(new By.ByXPath("..")).getAttribute("class").contains("current"));
         Assert.assertTrue(mainPage.fillingSection.find(new By.ByXPath("..")).getAttribute("class").contains("current"));
@@ -91,15 +92,13 @@ public class ConstructorTests {
     @Test
     @DisplayName("Go to personal account from main page")
     @Description("Check clickability from personal account to main page")
-    public void goToPersonalAccount() throws InterruptedException {
+    public void goToPersonalAccount() {
         //проверка для уже авторизированного пользователя
         LoginPage loginPage = open("https://stellarburgers.nomoreparties.site/login", LoginPage.class);
         MainPage mainPage = loginPage.signIn("Polly@mail.ru","PollyPolly");
-        mainPage.personalAccountBtn.click();
+        mainPage.clickToPersonalAccountBtn();
         AccountPage accountPage = page(AccountPage.class);
-        Assert.assertTrue(accountPage.profile.shouldBe(exist, Duration.ofMillis(1000)).exists());
-        accountPage.logout();
+        Assert.assertTrue(accountPage.profile.shouldBe(Condition.exist, Duration.ofMillis(1000)).exists());
         }
-
 
 }

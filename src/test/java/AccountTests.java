@@ -42,7 +42,7 @@ public class AccountTests {
         //проверка для уже авторизированного пользователя
         LoginPage loginPage = open("https://stellarburgers.nomoreparties.site/login", LoginPage.class);
         MainPage mainPage = loginPage.signIn("Polly@mail.ru","PollyPolly");
-        mainPage.personalAccountBtn.click();
+        mainPage.clickToPersonalAccountBtn();
         AccountPage accountPage = page(AccountPage.class);
         loginPage =  accountPage.logout();
         Assert.assertTrue(loginPage.loginBtn.exists());
@@ -51,11 +51,11 @@ public class AccountTests {
     @Test
     @DisplayName("Go to logo from personal account")
     @Description("Check clickability from personal account to logo")
-    public void authorizedUserFromPersonalAccountByLogo() throws InterruptedException {
+    public void authorizedUserFromPersonalAccountByLogo(){
         //проверка для уже авторизированного пользователя
         LoginPage loginPage = open("https://stellarburgers.nomoreparties.site/login", LoginPage.class);
         MainPage mainPage = loginPage.signIn("Polly@mail.ru","PollyPolly");
-        mainPage.personalAccountBtn.click();
+        mainPage.clickToPersonalAccountBtn();
         AccountPage accountPage = page(AccountPage.class);
         //проверяем что открылась странца конструктора.
         Assert.assertTrue(accountPage.goToMainPageByLogo().createBurgerText.shouldBe(exist, Duration.ofMillis(1000)).exists());
@@ -65,15 +65,17 @@ public class AccountTests {
     @Test
     @DisplayName("Go to constructor from personal account")
     @Description("Check clickability from personal account to main page")
-    public void authorizedUserFromPersonalAccountToConstructor() throws InterruptedException {
+    public void authorizedUserFromPersonalAccountToConstructor() {
         //проверка для уже авторизированного пользователя
         LoginPage loginPage = open("https://stellarburgers.nomoreparties.site/login", LoginPage.class);
         MainPage mainPage = loginPage.signIn("Polly@mail.ru","PollyPolly");
-        mainPage.personalAccountBtn.click();
+        mainPage.clickToPersonalAccountBtn();
         AccountPage accountPage = page(AccountPage.class);
         //проверяем что открылась странца конструктора.
         Assert.assertTrue(accountPage.goToMainPage().createBurgerText.shouldBe(exist,Duration.ofMillis(1000)).exists());
     }
 
+  }
 
-}
+
+

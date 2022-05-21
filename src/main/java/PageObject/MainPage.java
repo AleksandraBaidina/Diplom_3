@@ -21,7 +21,7 @@ public class MainPage {
     public SelenideElement listOfOrdersBtn;
 
     //Кнопка Личный Кабинет
-    @FindBy(how = How.XPATH, using = ".//*[text()='Личный Кабинет']")
+    @FindBy(how = How.XPATH, using = "//*[@href='/account']")
     public SelenideElement personalAccountBtn;
 
     // Текст соберите бургер
@@ -75,9 +75,31 @@ public class MainPage {
     }
 
     public void logOut() {
-        personalAccountBtn.shouldBe(Condition.exist, Duration.ofMillis(1000)).click();
+        personalAccountBtn.shouldBe(Condition.exist, Duration.ofMillis(3000)).click();
         AccountPage accountPage = page(AccountPage.class);
         accountPage.logout().loginBtn.shouldBe(Condition.exist, Duration.ofMillis(3000));
 
+    }
+
+    public AccountPage clickToPersonalAccountBtn()
+    {
+        personalAccountBtn.click();
+        return page(AccountPage.class);
+    }
+    @Step("Go to sauce section")
+    public void clickSauceSection()
+    {
+        sauceSection.click();
+    }
+    @Step("Go to filling section")
+    public void clickFillingSection()
+    {
+        fillingSection.click();
+
+    }
+    @Step("Go to bun section")
+    public void clickBunSection()
+    {
+        bunSection.click();
     }
 }

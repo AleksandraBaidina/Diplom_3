@@ -58,7 +58,7 @@ public class AccountPage {
 
     @Step("User logout")
     public LoginPage logout(){
-      //
+
 //        try {
 //        //check if it's account page indeed.
 //        // we can't just use Element.exist(), since the time is need to the page have been loaded.
